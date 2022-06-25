@@ -31,6 +31,10 @@ class Point{
             x_ = x;
             y_ = y;
         }
+        Point(const Point & other){
+            this->x_ = other.x_;
+            this->y_ = other.y_;
+        }
         int getX(){
             return x_;
         }
@@ -40,8 +44,22 @@ class Point{
         bool operator == (const Point &other){ // overloaded == operator
             return this->x_ == other.x_ && this->y_ == other.y_;
         };
+        // without a copy constructor the error accures with a addition if we allocate dynamic memory
         Point operator + (const Point &other){ // overloaded + operator
             Point temp(this->x_ + other.x_, this->y_ + other.y_);
+            return temp;
+        }
+        Point & operator ++ (){ // overloaded ++ operator (prefix)
+            this->x_++;
+            this->y_++;
+            return *this;
+        }
+        // postfix form deffers from prefix by inused int parametr
+        // we cant return a reference to temp because its lifetime is limited by this block of code 
+        Point operator ++ (int value){ // overloaded ++ operator (postfix)
+            Point temp(*this);
+            this->x_++;
+            this->y_++;
             return temp;
         }
 };
@@ -109,6 +127,24 @@ class MyClass {
         }
 };
 
+// class for testing an overloading of [] (indexing)
+class TestIndexing{
+    private:
+        int size_ = 4;
+        int array_[4]{1, 2 , 25 , 0};
+    public:
+        int & operator [] (int index){ // we use reference to be able to change the value by index
+            return array_[index];      // without returning reference we can only get a value by index
+        }
+        void print(){
+            cout << "Array: ";
+            for(int i = 0; i < size_; i++){
+                cout << array_[i] << " ";
+            }
+             cout << "\n";
+        }
+};
+
 int main() {
     int dataToEnter = 5;    
     MyClass firstObject(dataToEnter);
@@ -125,14 +161,26 @@ int main() {
     Point a(1, 2);
     Point b(1, 2);
     bool compareResultPoint = a == b;
-    cout << "Are two points equal: " << compareResultPoint << "\n" ;
+    cout << "Are two \"Point\" equal: " << compareResultPoint << "\n" ;
 
     Point c = a + b;
+    cout << "(.) c with x = " << c.getX() << " y = " << c.getY() << "\n";
+    Point c1 = ++c;
+    cout << "(.) new c1 after prefix increment of c x = " << c1.getX() << " y = " << c1.getY() << "\n";
+    Point c2 = c++;
+    cout << "(.) new c2 after postfix increment of c x = " << c2.getX() << " y = " << c2.getY() << "\n";
     cout << "(.) c with x = " << c.getX() << " y = " << c.getY() << "\n";
 
     Human aH(19, 180, "Oleg");
     Human bH(19, 180, "Hugo");
     bool compareResultHuman = aH != bH;
-    cout << "Are two \"human\" equal: " << compareResultHuman << "\n" ;   
+    cout << "Are two \"Human\" equal: " << compareResultHuman << "\n" ;
+
+    TestIndexing indexObject;
+    indexObject.print();
+    cout << "Index 2: " << indexObject[2] << "\n";
+    indexObject[2] = 1000;
+    indexObject.print();
+    cout << "Index 2: " << indexObject[2] << "\n";
     return 0;   
 }
