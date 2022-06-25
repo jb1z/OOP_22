@@ -31,9 +31,19 @@ class Point{
             x_ = x;
             y_ = y;
         }
+        int getX(){
+            return x_;
+        }
+        int getY(){
+            return y_;
+        }
         bool operator == (const Point &other){ // overloaded == operator
             return this->x_ == other.x_ && this->y_ == other.y_;
         };
+        Point operator + (const Point &other){ // overloaded + operator
+            Point temp(this->x_ + other.x_, this->y_ + other.y_);
+            return temp;
+        }
 };
 
 class MyClassOther{
@@ -115,11 +125,14 @@ int main() {
     Point a(1, 2);
     Point b(1, 2);
     bool compareResultPoint = a == b;
-    cout << compareResultPoint << "\n" ;
+    cout << "Are two points equal: " << compareResultPoint << "\n" ;
+
+    Point c = a + b;
+    cout << "(.) c with x = " << c.getX() << " y = " << c.getY() << "\n";
 
     Human aH(19, 180, "Oleg");
     Human bH(19, 180, "Hugo");
     bool compareResultHuman = aH != bH;
-    cout << compareResultHuman << "\n" ;   
+    cout << "Are two \"human\" equal: " << compareResultHuman << "\n" ;   
     return 0;   
 }
