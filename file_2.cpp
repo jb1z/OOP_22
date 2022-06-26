@@ -55,6 +55,22 @@ void changeY(Point & pointChange){
     pointChange.y_ = 0;
 }
 
+class MyClass{
+    private:
+        int data_;
+    public:
+        MyClass();
+        void print();
+};
+
+MyClass::MyClass(){ // constructor outside the class
+    data_ = 5;
+}
+
+void MyClass::print(){ // method outside the class
+    cout << "Data is: " << data_ << "\n";
+}
+
 int main() 
 { 
     Point a(5, 26);
@@ -64,5 +80,8 @@ int main()
     a.print();
     changeY(a);
     a.print();
+
+    MyClass dataCarrier;
+    dataCarrier.print();
     return 0;
 }
