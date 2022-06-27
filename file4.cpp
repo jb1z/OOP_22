@@ -31,10 +31,36 @@ class Image{
         }
 };
 
+class SecondPixel{
+    private:
+        int r_;
+        int g_;
+        int b_;
+    public:
+        SecondPixel(){
+            r_ = 0;
+            g_ = 0;
+            b_ = 0;
+        }
+        SecondPixel(int r, int g, int b){
+            r_ = r;
+            g_ = g;
+            b_ = b;
+        }
+        string getInfo(){
+             return "SecondPixel: r = " + to_string(r_) + " g = " + to_string(g_) + " b = " + to_string(b_) + "\n";
+        }
+};
+
 
 
 int main(){
     Image image;
-    image.getImageInfo();   
+    image.getImageInfo();
+
+    SecondPixel pixel2(111,222,231);
+    SecondPixel pixelArray[5]; // array of objects
+    SecondPixel *dynamicPixelArray  = new SecondPixel[5];
+    delete[] dynamicPixelArray;   
     return 0;
 }
