@@ -52,6 +52,45 @@ class SecondPixel{
         }
 };
 
+// we can use Cap not only with Human class - agregation
+class Cap{
+    private:
+        string color_ = "red";
+    public:
+        string getColor(){
+            return color_;
+        }
+};
+
+class Mannequin{
+    public:
+        void inspectCap(){
+            cout << cap.getColor() << "\n";
+        }
+    private:
+        Cap cap;
+};
+
+// we can use Brain only with Human class - composition
+class Human{
+    public: 
+        void think(){
+            brain.think(); // delegation
+        }
+        void inspectCap(){
+            cout << cap.getColor() << "\n";
+        }
+    private:
+        class Brain{
+            public:
+                void think(){
+                    cout << "I think!\n";
+                }
+        };
+        Brain brain; // composition
+        Cap cap; // agragation
+};
+
 
 
 int main(){
@@ -61,6 +100,12 @@ int main(){
     SecondPixel pixel2(111,222,231);
     SecondPixel pixelArray[5]; // array of objects
     SecondPixel *dynamicPixelArray  = new SecondPixel[5];
+
+    Human human; 
+    human.think();
+    human.inspectCap(); // we use cap for Human
+    Mannequin mannequin; 
+    mannequin.inspectCap(); // we use cap for Mannequin
     delete[] dynamicPixelArray;   
     return 0;
 }
