@@ -113,6 +113,6 @@ int main(){
 
     D d;
 
-    F f;
+    F f("Message");
     return 0;
 }
