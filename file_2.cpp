@@ -78,9 +78,11 @@ class Human;
 class Human{
     public:
         void takeApple(Apple &apple);
+        void eatApple(Apple &apple);
 };
 
 class Apple{
+    friend Human; 
     private:
         int weight_;
         string color_;
@@ -88,9 +90,18 @@ class Apple{
         Apple(int weight, string color){
             weight_ = weight;
             color_ = color;
-        }
-        friend void Human::takeApple(Apple &apple); // friend method in Human class     
+        }           
 };
+
+void Human::takeApple(Apple &apple){
+    cout << "Weight: " << apple.weight_ << ", color: " << apple.color_ << "\n"; 
+}
+
+void Human::eatApple(Apple &apple){
+    apple.color_ = "Null";
+    apple.weight_ = 0;
+    Human::takeApple(apple); 
+}
 
 int main() 
 { 
@@ -108,11 +119,8 @@ int main()
     Apple apple(150, "Green");
     Human John;
     John.takeApple(apple);
+    John.eatApple(apple);
 
     return 0;
 }
 
-// we should realise it after main
-void Human::takeApple(Apple &apple){  // we should endure method to class to make "friend link" be able 
-    cout << "Apple weight: " << apple.weight_ << ", apple color: " << apple.color_ << "\n";
-}
