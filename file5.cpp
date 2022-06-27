@@ -48,10 +48,55 @@ class B : public A{
         }
 };
 
+//!
 // when inheriting: public -> fields: public - public; protected - protected; private - private
 // when inheriting: protected -> fields: public - protected; protected - protected; private - private
 // when inheriting: private -> fields: public - private; protected - private; private - private
+//!
 
+//the calling order of constructors and destructors
+class C{
+    public:
+        C(){
+            cout << "Im C constructor!\n"; 
+        }
+        ~C(){
+            cout << "Im C destructor!\n";
+        }
+};
+
+class D : public C{
+    public:
+        D(){
+            cout << "Im D constructor!\n";
+        }
+        ~D(){
+            cout << "Im D destructor!\n";
+        }
+};
+//
+
+class E{
+    private:
+        string msg_;
+    public:
+        E(){
+            cout << "Im E constructor!\n"; 
+        }
+        E(string msg){
+            msg_ = msg;
+        }
+        void printMsg(){
+            cout << msg_ << "\n";
+        }       
+};
+
+class F : public E{
+    public:
+        F(string msg) : E(msg){ // we call certain constructor
+            cout << "Im F constructor!\n";
+        }       
+};
 
 int main(){
     Student st;
@@ -65,5 +110,9 @@ int main(){
     b.msgPub;
     //b.msgProt; - protected section locked from here
     //b.msgPriv; - private section locked from here
+
+    D d;
+
+    F f;
     return 0;
 }
