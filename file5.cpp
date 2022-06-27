@@ -113,6 +113,10 @@ int main(){
 
     D d;
 
+<<<<<<< HEAD
     F f("Message");
+=======
+    F f;
+>>>>>>> cac12d5aefdf47f33ef46c1909a3b57097ea82e1
     return 0;
 }
