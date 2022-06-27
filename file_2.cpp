@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Point;
@@ -71,6 +72,26 @@ void MyClass::print(){ // method outside the class
     cout << "Data is: " << data_ << "\n";
 }
 
+class Apple;
+class Human;
+
+class Human{
+    public:
+        void takeApple(Apple &apple);
+};
+
+class Apple{
+    private:
+        int weight_;
+        string color_;
+    public:
+        Apple(int weight, string color){
+            weight_ = weight;
+            color_ = color;
+        }
+        friend void Human::takeApple(Apple &apple); // friend method in Human class     
+};
+
 int main() 
 { 
     Point a(5, 26);
@@ -83,5 +104,15 @@ int main()
 
     MyClass dataCarrier;
     dataCarrier.print();
+
+    Apple apple(150, "Green");
+    Human John;
+    John.takeApple(apple);
+
     return 0;
+}
+
+// we should realise it after main
+void Human::takeApple(Apple &apple){  // we should endure method to class to make "friend link" be able 
+    cout << "Apple weight: " << apple.weight_ << ", apple color: " << apple.color_ << "\n";
 }
