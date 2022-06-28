@@ -44,6 +44,26 @@ class Player{
         }
 };
 
+class A{
+    public: 
+        A(){
+            cout << "Memory allocated A \n";
+        }
+        virtual ~A(){
+            cout << "Memory released A \n";
+        }
+};
+
+class B : public A{
+    public: 
+        B(){
+            cout << "Memory allocated B \n";
+        }
+        ~B() override{
+            cout << "Memory released B \n";
+        }
+};
+
 int main(){
     Player player;
     Knife knife;
@@ -58,5 +78,11 @@ int main(){
     gun.Fun();
     machineGun.Fun();
     bazooka.Fun();
+
+    A *bptr = new B;
+    delete bptr;
+    // we only release memory by A destructor, without B destructor
+    // we should make ~A() - virtual
+    // we need virtual destructor for a correct memory release
     return 0;
 }
