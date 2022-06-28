@@ -64,6 +64,26 @@ class B : public A{
         }
 };
 
+class C{
+    public: 
+        C(){
+            cout << "Memory allocated C \n";
+        }
+        virtual ~C() = 0;
+};
+
+C::~C(){}; // !!! making virtual destructor like this
+
+class D : public C{
+    public: 
+        D(){
+            cout << "Memory allocated D \n";
+        }
+        ~D() override{
+            cout << "Memory released D \n";
+        }
+};
+
 int main(){
     Player player;
     Knife knife;
@@ -84,5 +104,9 @@ int main(){
     // we only release memory by A destructor, without B destructor
     // we should make ~A() - virtual
     // we need virtual destructor for a correct memory release
+
+    //C c; we cant create an C object 
+    C *d = new D;
+    delete d; 
     return 0;
 }
