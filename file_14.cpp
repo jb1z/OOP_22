@@ -19,7 +19,11 @@ class List{
     public:
         List();
         void push_back(TList data);
+        void push_front(TList data);
         void pop_front();
+        void pop_back();
+        void insert(TList data, int index);
+        void removeAt(int index);
         void clear();
         int getSize();
         TList& operator[](const int index);
@@ -48,6 +52,12 @@ void List<TList>::push_back(TList data){
 }
 
 template<class TList>
+void List<TList>::push_front(TList data){
+    head_ = new Node<TList>(data, head_);
+    size_++;
+}
+
+template<class TList>
 int List<TList>::getSize(){
     return size_;
 }
@@ -58,6 +68,47 @@ void List<TList>::pop_front(){
     this->head_ = head_->pNext;
     delete temp;
     size_--;
+}
+
+template<class TList>
+void List<TList>::pop_back(){
+    removeAt(size_ - 1);
+}
+
+template<class TList>
+void List<TList>::insert(TList data, int index){
+    if(index == 0){
+        push_front(data);
+    }
+    else if(index > size_ - 1){
+        push_back(data);
+    }
+    else{
+        Node<TList> *previous = this->head_;
+        for(int i = 0; i < index - 1; i++){
+            previous = previous->pNext;
+        }
+        previous->pNext = new Node<TList>(data, previous->pNext);
+        size_++;
+    }
+}
+
+template<class TList>
+void List<TList>::removeAt(int index){
+    if(index == 0){
+        pop_front();
+    }
+    else{
+        Node<TList> *temp = this->head_;
+        Node<TList> *previous;
+        for(int i = 0; i < index; i++){
+            previous = temp;
+            temp = temp->pNext;
+        }
+        previous->pNext = temp->pNext;
+        delete temp;
+        size_--;
+    }
 }
 
 template<class TList>
@@ -99,7 +150,19 @@ int main(){
     list.push_back(2);
     list.push_back(22);
     list.push_back(222);
+    list.push_front(123);
+    list.insert(999, 3);
     for(int i = 0; i < list.getSize(); i++){
+        cout << "list[" << i << "] = " << list[i] << endl;
+    }
+    cout << endl;
+    list.removeAt(4);
+    for(int i = 0; i < list.getSize(); i++){
+        cout << "list[" << i << "] = " << list[i] << endl;
+    }
+    cout << endl;
+    list.pop_back();
+     for(int i = 0; i < list.getSize(); i++){
         cout << "list[" << i << "] = " << list[i] << endl;
     }
     return 0;
