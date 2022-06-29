@@ -1,6 +1,26 @@
 #include <iostream>
 using namespace std;
 
+namespace firstNM{
+    void Foo(){
+        cout << "First foo()\n";
+    }
+}
+
+namespace secondNM{
+    void Foo(){
+        cout << "Second foo()\n";
+    }
+}
+
+namespace thirdNM{
+    namespace secondNM{
+        void Foo(){
+            cout << "Third foo()\n";
+        }
+}
+}
+
 class Pc{
     public:
         enum PcStates{ // enumeration
@@ -53,5 +73,12 @@ int main(){
 
     Speed speed = Speed::MAX;
     cout << speed << "\n";
+
+    //Foo(); cant see, we try to use function from global namespace
+    firstNM::Foo();
+    secondNM::Foo();
+    thirdNM::secondNM::Foo();
+    using namespace firstNM;
+    Foo();
     return 0;
 }
