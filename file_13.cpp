@@ -22,8 +22,8 @@ class SmartPointer{
 
 int main(){
     // with smart pointer we dont need to manage deleting 
-    auto_ptr<int> ap1 (new int(1));
-    auto_ptr<int> ap2 (ap1);
+    //auto_ptr<int> ap1 (new int(1));
+    //auto_ptr<int> ap2 (ap1);
 
     unique_ptr<int> up1(new int(1));
     //unique_ptr<int> up2(up1); we cant do like this (UNIQUE pointer)
@@ -41,5 +41,15 @@ int main(){
     // data deleted when last shared_poiner deleting 
     shared_ptr<int> sp1(new int(1));
     shared_ptr<int> sp2(sp1);
+
+    const int SIZE = 5;
+    int *arr = new int[SIZE] {78, 22, 50, 12, 2};
+    shared_ptr<int[]> ptr(arr);
+    // shared_ptr<int[]> ptr(new int[SIZE] {78, 22, 50, 12, 2});
+    for(int i = 0; i < SIZE; i++)
+    {
+        //ptr[i] = rand() % 10;
+        cout << ptr[i] << endl;
+    }
     return 0;
 }
