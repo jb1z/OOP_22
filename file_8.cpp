@@ -24,10 +24,41 @@ class Human{
         }
 };
 
+class Msg{
+    private:
+        string msg_;
+    public: 
+        Msg(string msg){
+            msg_ = msg;
+        }
+        virtual string getMsg(){
+            return msg_;
+        }
+};
+
+class BreketMsg : public Msg{
+    public:
+        BreketMsg(string msg) : Msg(msg){}
+        string getMsg() override{
+            return "[" + Msg::getMsg() + "]"; // we should directly point to method we want to use
+        }
+};
+
+class Printer{
+    public:
+        void print(Msg* msg){
+            cout << msg->getMsg() << endl;
+        }
+};
+
 int main(){
     Human human("John", 15);
     human.print();
     Human humanoid("Jack", 20, 72);
     humanoid.print();
+
+    BreketMsg msg("Hi!");
+    Printer p;
+    p.print(&msg);
     return 0;
 }
