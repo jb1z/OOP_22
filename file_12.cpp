@@ -49,6 +49,22 @@ class TypeInfo : public TypeSize <T>{
         }
 };
 
+template <class T>
+class Printer{
+    public:
+        void print(T value){
+            cout << value << endl;
+        }
+};
+
+template<>
+class Printer<string>{
+    public:
+        void print(string value){
+            cout << "_" << value << "_" << endl;
+        }
+};
+
 int main(){
     cout << sum(1,2) << endl;
     cout << sum(1.5,2.6) << endl;
@@ -63,5 +79,10 @@ int main(){
     mc.showTypeName();
     //mc.setValue(4.7);
     //cout << mc.getValue() << endl;
+
+    Printer<int> printer;
+    printer.print(5);
+    Printer<string> printer1;
+    printer1.print("Hello!!!");
     return 0;
 }
