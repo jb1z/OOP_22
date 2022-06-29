@@ -21,9 +21,9 @@ class Point {
 };
 
 template<class T>
-class MyClass{
+class TypeSize{
     public:
-        MyClass(T value){
+        TypeSize(T value){
             value_ = value;
         }
         /*T getValue(){
@@ -35,9 +35,18 @@ class MyClass{
         void dataTypeSize(){
             cout << sizeof(value_) << endl;
         }
-    private:
+    protected:
         T value_;
 
+};
+
+template <class T>
+class TypeInfo : public TypeSize <T>{
+    public:
+        TypeInfo(T value) : TypeSize <T> (value){}
+        void showTypeName(){
+            cout << "Type name is " << typeid(this->value_).name() << endl;
+        }
 };
 
 int main(){
@@ -49,8 +58,9 @@ int main(){
     cout << sum(1.5,2) << endl;
 
     Point a;
-    MyClass<Point> mc(a);
+    TypeInfo<Point> mc(a);
     mc.dataTypeSize();
+    mc.showTypeName();
     //mc.setValue(4.7);
     //cout << mc.getValue() << endl;
     return 0;
