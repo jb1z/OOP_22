@@ -124,5 +124,13 @@ int main(){
     list<int> myList2;
     myList2.assign(myList1.begin(), myList1.end());
     printList(myList2);
+
+    // prefix has a higher priority than postfix!!!
+    list<int>::iterator it5;
+    //it5++; //
+    //++it5; //
+    // the temp variable is creating when the postfix increment realizing
+    // that's why postfix incrementing is slower
+    // need this because of priority of postfix incrementing 
     return 0;
 }
