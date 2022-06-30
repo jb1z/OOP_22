@@ -39,5 +39,44 @@ int main(){
     for(int i = 0; i < myVector1.size(); i++){
         cout << myVector1[i] << endl;       
     }
+    cout << endl;
+
+    vector<int> myVector3 = {45, 60, 12, 125, 444, 1010};
+    vector<int>::iterator it1;
+    it1 = myVector3.begin();
+    *it1 = 1001;
+    it1+=2;
+    vector<int>::iterator it3;
+    it3 = myVector3.end();
+    it3--;
+    cout << *it1 << endl;
+    cout << *it3 << endl;
+    cout << endl;
+    for(vector<int>::const_iterator i = myVector3.cbegin(); i != myVector3.cend(); i++){ // const iterator
+        // cbegin and cend return constant iterator
+        //*i = 5; // we cant cahnge anything by const iterator
+        cout << *i << endl;
+    }
+    cout << endl;
+    for(vector<int>::reverse_iterator i = myVector3.rbegin(); i != myVector3.rend(); i++){ // reverse iterator     
+        cout << *i << endl;
+    }
+    cout << endl;
+
+    vector<int>::iterator it4 = myVector3.begin();
+    /*advance(it4, 3); // (iterator, step)
+    cout << *it4 << endl;*/ // we will have 125
+    myVector3.insert(it4, 9999);
+    for(vector<int>::const_iterator i = myVector3.cbegin(); i != myVector3.cend(); i++){
+        cout << *i << endl;
+    }
+
+    vector<int>::iterator itErase = myVector3.begin();
+    myVector3.erase(itErase);
+    //myVector3.erase(itErase, itErase + 3); // erasing from 0 to 3 
+    cout << endl;
+    for(vector<int>::const_iterator i = myVector3.cbegin(); i != myVector3.cend(); i++){
+        cout << *i << endl;
+    }
     return 0;
 }
