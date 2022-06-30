@@ -1,6 +1,16 @@
 #include <iostream>
+#include <list>
 #include <vector>
 using namespace std;
+
+template <class T>
+void printList(const list<T> &lst){
+    for(auto i = lst.begin(); i != lst.end(); ++i){
+        cout << *i << endl;
+    }
+    // for iterators its better to use ++i not i++
+    cout << endl;
+}
 
 int main(){
     /*auto a = 10; // a becomes int
@@ -78,5 +88,41 @@ int main(){
     for(vector<int>::const_iterator i = myVector3.cbegin(); i != myVector3.cend(); i++){
         cout << *i << endl;
     }
+    cout << endl;
+
+    list<int> myList = {1255, 12, 5323};
+    myList.push_back(5);
+    myList.push_front(205);
+
+    list<int>::iterator itList = myList.begin();
+    cout << "First element: " << *itList << endl;
+    cout << endl;
+    for(list<int>::iterator i = myList.begin(); i != myList.end(); i++){
+        cout << *i << endl;
+    }
+    cout << endl;
+    printList(myList);
+    myList.sort();
+    printList(myList);
+    cout << myList.size() << endl;
+    cout << endl;
+
+    list<int> myList1 = {1,2,3, 99, 3, 2, 1, 99,99,99,99};
+    myList1.unique(); // deletes recurring element which are in sequence
+    printList(myList1);
+    //myList1.reverse(); // reverses list
+    //myList1.clear();
+    auto itList1 = myList1.begin();
+    advance(itList1, 5);
+    myList1.insert(itList1, 1111);
+    itList1 = myList1.begin();
+    myList1.erase(itList1);
+    myList1.remove(99);
+    printList(myList1);
+    //myList1.assign(3, 1241); // filling by 3 element data of 1241
+    printList(myList1);
+    list<int> myList2;
+    myList2.assign(myList1.begin(), myList1.end());
+    printList(myList2);
     return 0;
 }
