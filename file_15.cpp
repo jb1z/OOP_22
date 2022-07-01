@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <forward_list>
 using namespace std;
 
 template <class T>
@@ -13,6 +14,7 @@ void printList(const list<T> &lst){
 }
 
 int main(){
+    /*Auto keyword*/
     /*auto a = 10; // a becomes int
     auto b = 1.44; // b becomes double
     auto c = "string"; // c becomes const char[]
@@ -27,7 +29,9 @@ int main(){
     // we can use auto instead of long type define
     // using for primitive worsens the readability of the code
     cout << endl;
+    /*Auto keyword*/
 
+    /*Vector*/
     vector<int> myVector1;
     //vector<int> myVector1(20,55); // 20 elements with data: 55
     myVector1.reserve(100); // setting capacity
@@ -50,7 +54,9 @@ int main(){
         cout << myVector1[i] << endl;       
     }
     cout << endl;
+    /*Vector*/
 
+    /*Iterator*/
     vector<int> myVector3 = {45, 60, 12, 125, 444, 1010};
     vector<int>::iterator it1;
     it1 = myVector3.begin();
@@ -72,7 +78,7 @@ int main(){
         cout << *i << endl;
     }
     cout << endl;
-
+    
     vector<int>::iterator it4 = myVector3.begin();
     /*advance(it4, 3); // (iterator, step)
     cout << *it4 << endl;*/ // we will have 125
@@ -89,7 +95,9 @@ int main(){
         cout << *i << endl;
     }
     cout << endl;
-
+    /*Iterator*/
+    
+    /*List*/
     list<int> myList = {1255, 12, 5323};
     myList.push_back(5);
     myList.push_front(205);
@@ -124,13 +132,33 @@ int main(){
     list<int> myList2;
     myList2.assign(myList1.begin(), myList1.end());
     printList(myList2);
+    /*List*/
 
+    /*PrefixVS_Postfix*/
     // prefix has a higher priority than postfix!!!
     list<int>::iterator it5;
     //it5++; //
     //++it5; //
     // the temp variable is creating when the postfix increment realizing
     // that's why postfix incrementing is slower
-    // need this because of priority of postfix incrementing 
+    // need this because of priority of postfix incrementing
+    /*PrefixVS_Postfix*/
+
+    /*Forward list*/
+    forward_list<int> fl = {1, 5 , 0 ,244};
+    fl.push_front(1);
+    fl.push_front(3);
+    forward_list<int>::iterator itFl = fl.begin();
+    //itFl++;
+    fl.insert_after(itFl, 999909);
+    fl.erase_after(itFl);
+    //itFl--; // decrement is not overloaded because forward list is singly connected  
+    cout << *itFl << endl << endl;
+    forward_list<int>::iterator itFl1 = fl.before_begin();
+    fl.insert_after(itFl1, 999909); // we can insert element before 1st in list
+    for(auto el : fl){
+        cout << el << endl;
+    }
+    /*Forward list*/ 
     return 0;
 }
