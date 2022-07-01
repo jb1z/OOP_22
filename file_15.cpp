@@ -3,6 +3,7 @@
 #include <vector>
 #include <forward_list>
 #include <array>
+#include <deque>
 using namespace std;
 
 template <class T>
@@ -183,7 +184,11 @@ int main(){
     /*Compare operators*/
 
     /*Deque*/
-    
+    /*list of small dynamic arrays*/
+    // accessing is faster than in list but slower than in vector
+    // inserting is faster than in vector
+    deque<int> dq = {1, 2, 999};
+    dq.at(0);
     /*Deque*/ 
     return 0;
 }
