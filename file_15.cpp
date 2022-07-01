@@ -283,7 +283,7 @@ int main(){
     // Stack, queue and priority_queue are container adapters
     // they lay down rules on container
 
-    /*Stack*/ // FILO
+    /*Stack*/ // FILO - First In Last Out
     stack<int> st; // on default stack uses deque
     st.push(2); // create copy of object and then moce a copy to collection
     st.emplace(9); // emplace directly create object
@@ -303,8 +303,40 @@ int main(){
     cout << endl;
     /*Stack*/
 
-    /*Queue/priority_queue*/ // FIFO
-    
+    /*Queue/priority_queue*/ // FIFO - First In First Out
+    queue<int> q; // on default queue uses deque
+    q.push(2);
+    q.push(215);
+    q.push(55);
+    q.push(67);
+    q.push(3);
+    q.push(3);
+    q.push(1223);
+    cout << q.front() << endl;
+    cout << q.back() << endl;
+    q.pop();
+    cout << q.front() << endl;
+    cout << endl;
+    while(!q.empty()){
+        cout << q.front() << endl;
+        q.pop();
+    }
+    // !vector! cant be a base of queue
+    priority_queue<int> qp;
+    qp.push(2);
+    qp.push(215);
+    qp.push(55);
+    qp.push(67);
+    qp.push(3);
+    qp.push(3);
+    qp.push(1223);
+    cout << endl;
+    // !list! cant be a base of priority_queue
+    // !on default element are sorted in descending order!
+    while(!qp.empty()){
+        cout << qp.top() << endl;
+        qp.pop();
+    }
     cout << endl;
     /*Queue/priority_queue*/    
     return 0;
