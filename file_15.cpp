@@ -2,6 +2,7 @@
 #include <list>
 #include <vector>
 #include <forward_list>
+#include <array>
 using namespace std;
 
 template <class T>
@@ -160,5 +161,16 @@ int main(){
         cout << el << endl;
     }
     /*Forward list*/ 
+
+    /*Array*/ // wrapper for static array
+    array<int, 5> array1 = {5, 3, 1, 2, 4};
+    cout << array1[0] << endl;
+    cout << array1.at(4) << endl << endl;
+    array1.fill(2);
+    for(auto el : array1){
+        cout << el << endl;
+    }
+    cout << endl;
+    /*Array*/
     return 0;
 }
