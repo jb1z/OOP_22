@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <list>
 #include <vector>
 #include <forward_list>
@@ -239,8 +240,44 @@ int main(){
     cout << *itMS1 << endl;
     cout << *itMS2 << endl;
     cout << endl;
-    auto itMS2 = myMultiSet.equal_range(1); // returns a range of element from lower_bound to upper_bound 
+    auto itMS3 = myMultiSet.equal_range(1); // returns a range of element from lower_bound to upper_bound 
     cout << endl;
-    /*Set/multiset*/  
+    /*Set/multiset*/
+
+    /*Map/multimap*/
+    // map unique values
+    // multimap duplicate values
+    pair<int, string> p(0, "Samsung");
+    cout << p.first << endl;
+    cout << p.second << endl;
+    cout << endl;
+    map<int, string> myMap;
+    myMap.insert(pair<int, string> (2, "AOC")); 
+    myMap.emplace(3, "Honor");
+    myMap.insert(p);
+    myMap.insert(make_pair(1, "LG"));
+    auto itMM = myMap.find(3);
+    cout << itMM->first << endl;
+    cout << itMM->second << endl;
+    cout << endl;
+    map<string, int> myMap1;
+    myMap1.emplace("Bruce", 1000000);
+    myMap1.emplace("Marta", 12125);
+    myMap1.emplace("Kal-El", 5555);
+    myMap1["Bruce"] = 20000000;
+    // myMap1.at("Robbin") = 212512; // out of range exception
+    myMap1["Robbin"] = 212512;
+    cout << myMap1["Bruce"] << endl;
+    cout << myMap1["Marta"] << endl;
+    cout << myMap1["Kal-El"] << endl;
+    cout << myMap1["Robbin"] << endl;
+    myMap1.erase("Robbin");
+
+    multimap<string, int> myMultiMap;
+    myMultiMap.emplace("Marta", 12125);
+    myMultiMap.emplace("Marta", 5555);
+    // at is missing & [] is not overloaded   
+    cout << endl;
+    /*Map/multimap*/  
     return 0;
 }
