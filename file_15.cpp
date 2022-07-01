@@ -4,6 +4,10 @@
 #include <forward_list>
 #include <array>
 #include <deque>
+#include <set>
+#include <map>
+#include <stack>
+#include <queue>
 using namespace std;
 
 template <class T>
@@ -181,6 +185,7 @@ int main(){
     bool result1 = (arr1 > arr2);
     cout << result << endl;
     cout << result1 << endl;
+    cout << endl;
     /*Compare operators*/
 
     /*Deque*/
@@ -189,6 +194,53 @@ int main(){
     // inserting is faster than in vector
     deque<int> dq = {1, 2, 999};
     dq.at(0);
-    /*Deque*/ 
+    /*Deque*/
+
+    /*Set/multiset*/
+    // set keeps only unique values
+    // elements in set are ordered
+    set<int> mySet;
+    //mySet.insert(5);
+    //mySet.insert(2);
+    //mySet.insert(8);
+    for(int i = 0; i < 10; i++){
+        mySet.insert(rand() % 10);
+    }  
+    for(auto el : mySet){
+        cout << el << endl;
+    }
+    mySet.clear();
+    mySet.insert(1);
+    mySet.insert(5);
+    mySet.insert(15);
+    mySet.insert(30);
+    // the element finding is realiazed by binary search
+    auto itSet = mySet.find(15); 
+    // we cant change element in set
+    // but we can delete and insert them
+    mySet.erase(5);
+    mySet.insert(64);
+    cout << endl;
+    for(auto el : mySet){
+        cout << el << endl;
+    }
+    cout << endl;
+    auto res = mySet.insert(30);
+    // returning a pair: iterator and bool (is set or not (because element already was in set))    
+    cout << endl;
+
+    multiset<int> myMultiSet = {-1, -2, 1, 1, 1, 4, 55, 125};
+    for(auto el : myMultiSet){
+        cout << el << endl;
+    }
+    cout << endl;
+    auto itMS1 = myMultiSet.lower_bound(1); // returns an iterator to first 1
+    auto itMS2 = myMultiSet.upper_bound(1); // returns an iterator to first element bigger than 1
+    cout << *itMS1 << endl;
+    cout << *itMS2 << endl;
+    cout << endl;
+    auto itMS2 = myMultiSet.equal_range(1); // returns a range of element from lower_bound to upper_bound 
+    cout << endl;
+    /*Set/multiset*/  
     return 0;
 }
