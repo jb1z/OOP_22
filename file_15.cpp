@@ -278,6 +278,34 @@ int main(){
     myMultiMap.emplace("Marta", 5555);
     // at is missing & [] is not overloaded   
     cout << endl;
-    /*Map/multimap*/  
+    /*Map/multimap*/
+
+    // Stack, queue and priority_queue are container adapters
+    // they lay down rules on container
+
+    /*Stack*/ // FILO
+    stack<int> st; // on default stack uses deque
+    st.push(2); // create copy of object and then moce a copy to collection
+    st.emplace(9); // emplace directly create object
+    st.push(3);
+    st.push(4);
+    st.top(); // returns element
+    st.pop(); // deletes
+    cout << st.top() << endl; 
+    st.pop();
+    cout << st.top() << endl;
+    cout << endl;
+    while(!st.empty()){
+        cout << st.top() << endl;
+        st.pop();
+    }
+    stack<int, list<int>> st1; // stack based on list
+    cout << endl;
+    /*Stack*/
+
+    /*Queue/priority_queue*/ // FIFO
+    
+    cout << endl;
+    /*Queue/priority_queue*/    
     return 0;
 }
