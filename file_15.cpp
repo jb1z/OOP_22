@@ -172,5 +172,18 @@ int main(){
     }
     cout << endl;
     /*Array*/
+   
+    /*Compare operators*/
+    array<int, 5> arr1 = {5, 3, 1, 2, 5};
+    array<int, 5> arr2 = {5, 3, 1, 2, 4};
+    bool result = (arr1 == arr2);
+    bool result1 = (arr1 > arr2);
+    cout << result << endl;
+    cout << result1 << endl;
+    /*Compare operators*/
+
+    /*Deque*/
+    
+    /*Deque*/ 
     return 0;
 }
