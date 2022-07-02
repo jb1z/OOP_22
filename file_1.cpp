@@ -54,7 +54,7 @@ class Point{
             this->y_++;
             return *this;
         }
-        // postfix form deffers from prefix by inused int parametr
+        // postfix form differs from prefix by unused int parametr
         // we cant return a reference to temp because its lifetime is limited by this block of code 
         Point operator ++ (int value){ // overloaded ++ operator (postfix)
             Point temp(*this);
