@@ -47,7 +47,7 @@ class Point{
 };
 
 void changeX(Point & pointChange, Test & testChange){ // this function is friend to two classes
-    pointChange.x_ = 0;                               // it has access to prevate fields in two classes (Point, Test)
+    pointChange.x_ = 0;                               // it has access to private fields in two classes (Point, Test)
     testChange.value_ = 0;
     // this-> doesnt work in friend functions
 }
