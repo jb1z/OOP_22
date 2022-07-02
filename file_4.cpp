@@ -88,7 +88,7 @@ class Human{
                 }
         };
         Brain brain; // composition
-        Cap cap; // agragation
+        Cap cap; // agrregation
 };
 
 

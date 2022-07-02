@@ -268,6 +268,33 @@ ___
 ## file_4.cpp
 
 **Themes covered in file:**
+
+- *inner class*
+- *agregation & composition*
+
+**Description:**
+
+***Inner class:***
+
+In this file class `Pixel` inside the `Image` class (image consist of lots of pixels - by this logic), class `Pixel` declared in private section of `Image`, these classes can't access each other private data.
+
+Also in `Image` there is *static* field:
+
+```cpp
+static const int LENGTH = 5; // must be static
+// we can initialize it here because this field is CONSTANT
+```
+
+And it initialized here because this field is `const` despite being `static` at the same time.
+
+This field sets the size of `Pixel` array in `Image`.
+
+***Agregation & composition***
+
+The example of *composition* in this file is `Brain` class in `Human` class, we create also a `Brain` object in `Human`. We can use `Brain` only with `Human` class - this is composition. We call `brain.think()` method in `think()` method of `Human` - this is *delegation*.
+
+The example of *aggregation* in this file is an object of `Cap` class, which we both use in `Human` class and `Mannequin` class.
+
 ___
 
 ## file_5.cpp
