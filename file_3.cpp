@@ -34,7 +34,7 @@ class Apple{
         
 };
 
-int Apple::appleCount_ = 0; // static initializing outside an object
+int Apple::appleCount_ = 0; // static initializing outside a class
 
 int main() 
 { 

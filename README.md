@@ -225,6 +225,44 @@ ___
 ## file_3.cpp
 
 **Themes covered in file:**
+
+-*static fields & static methods*
+
+**Description:**
+
+***Static fields & static methods:***
+
+In `Apple` class there is a static field `static int appleCount_` this field we need for counting objects of `Apple` class. The initializing of static field must be done outside the class body.
+
+```cpp
+int Apple::appleCount_ = 0; // static initializing outside a class
+```
+
+Static fields and functions are global for all class and it's objects, we can access it by class namespace like this:
+
+```cpp
+Apple::changeColor(apple2, "red");
+```
+
+Here it is the example of static method.
+
+Also we cant reach *non-static* field in *static* methods:
+
+```cpp
+static int getAppleCount(){
+    // weight_ = 0; we cant access to non-static field 
+    return appleCount_;
+}
+```
+
+But we can do it this way (by receiving an object like a method's parametr):
+
+```cpp
+static void changeColor(Apple &apple, string color){ // we can do like this
+    apple.color_ = color;  
+}
+```
+
 ___
 
 ## file_4.cpp
