@@ -156,7 +156,7 @@ int main() {
     MyClass fourthObject(firstOtherObject);
     MyClass fifthObject(2);
     MyClass sixthObject(2);
-    sixthObject = fifthObject = firstObject; // overloaded operator return link to object so we able to do this
+    sixthObject = fifthObject = firstObject; // overloaded operator returns reference to object so we able to do this
 
     Point a(1, 2);
     Point b(1, 2);
