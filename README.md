@@ -169,6 +169,57 @@ ___
 ## file_2.cpp
 
 **Themes covered in file:**
+
+- *friend functions*
+- *removing the implementation of methods outside the class body*
+- *friend class*
+
+**Description:**
+
+***Friend functions:***
+
+1. In `Point` class 2 functions are `friend` to this class:
+
+    ```cpp
+    friend void changeX(Point & pointChange, Test & testChange); // friend function
+    friend void changeY(Point & pointChange); // friend function
+    ```
+
+    These functions are declared and realiazed outside the class, but they can access private fields of classes in which these functions are `friend`.
+
+2. In `Test` class 1 function is `friend` to this class:
+
+    ```cpp
+    void changeX(Point & pointChange, Test & testChange)// this function is friend to two classes
+    ```
+
+    Function `changeX` is friend to `Point` and `Test` in it's body we access to private fields of `Point` and `Test` classes.
+
+***Removing the implementation of methods outside the class body:***
+
+In `MyClass` there is a constructor and `print()` method - they are declared in class, but their realizations are out of class body and it work like this:
+
+```cpp
+void MyClass::print(){ // method outside the class
+    cout << "Data is: " << data_ << "\n";
+}
+```
+
+As an example here the realiztion of `print()` method outside a class.
+
+***Friend class:***
+
+The `Human` class is designated as `friend` in `Apple` class this leads us to the conclusion that we can access private fields of object of `Apple` class in `Human` method.
+
+```cpp
+void Human::takeApple(Apple &apple){
+    cout << "Weight: " << apple.weight_ << ", color: " << apple.color_ << "\n"; 
+}
+```
+
+As an example: `takeApple` method is `Human` class method, but we can access `apple.weight_`
+although `weight_` is private in `Apple` class.
+
 ___
 
 ## file_3.cpp
