@@ -8,7 +8,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
 
 - *constructors*
 - *copy constructors*
-- *overloading operators*
+- *overloaded operators*
 
 **Description:**
 
@@ -110,9 +110,59 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
 
    - The first overloaded operator is `==` :
 
-        ``` cpp
+        ```cpp
         bool operator == (const Point &other)
         ```
+
+        It accepts as a parametr an object of `Point` class and return a `bool`.
+
+   - The second overloaded operator is `+` :
+
+        ```cpp
+        Point operator + (const Point &other)
+        ```
+
+        We create a new object in the method's body and return it as a result of addition.
+
+        ```cpp
+        Point temp(this->x_ + other.x_, this->y_ + other.y_);
+        return temp;
+        ```
+
+   - The final block of overloaded operators are overloaded prefix and postfix increments :
+
+        ```cpp
+        Point & operator ++ ()
+        ```
+
+        We update some fields here by `this->` pointer and return `return *this`. This is a overloaded prefix increment.
+
+        The overloaded postfix increment should be considered more attentively:
+
+        ```cpp
+        // postfix form differs from prefix by unused int parametr
+        // we cant return a reference to temp because its lifetime is limited by this block of code 
+        Point operator ++ (int value){ // overloaded ++ operator (postfix)
+            Point temp(*this);
+            this->x_++;
+            this->y_++;
+            return temp;
+        }
+        ```
+
+        We create a `temp` copy of `*this`, make some updates with `this->` and return a `temp`, not reference to a `temp`! Because lifetime of this `temp` object is limited by this method. We should do like that because of priority of postfix incrementation. Also we have a one unused parametr `int value` we should do this to differ overloading of prefix incrementation from postfix.
+
+3. In `Human` class there is an overloaded `!=` operator but it realize implemented as overloading `==` described above.
+
+4. In `TestIndexing` class there is overloaded `[]` (indexing) operator:
+
+    ```cpp
+    int & operator [] (int index){ // we use reference to be able to change the value by index
+            return array_[index];      // without returning reference we can only get a value by index
+    }
+    ```
+
+    It returns a reference `int &` and accept `index` we are point in square brackets when we use it as a parametr.
 
 ___
 
