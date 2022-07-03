@@ -300,6 +300,34 @@ ___
 ## file_5.cpp
 
 **Themes covered in file:**
+
+- *inheritance*
+- *access specifiers in inheritance*
+
+**Description:**
+
+***Inheritance:***
+
+In this file `Human` is base class for `Student`, `Professor` and also `Extramural student` inherited from from `Student`. The inheritance denoted like:
+
+```cpp
+class Professor: public Human // inherited from Human
+```
+
+***Access specifiers in inheritance:***
+
+The `public` keyword before `Human` means the specification modifier of inheritance, it also could be `private` and `protected`. Here is the table of inheritance:
+
+**\*Insert table\***
+
+**\*Make it from this\***
+
+//!
+// when inheriting: public -> fields: public - public; protected - protected; private - private
+// when inheriting: protected -> fields: public - protected; protected - protected; private - private
+// when inheriting: private -> fields: public - private; protected - private; private - private
+//!
+
 ___
 
 ## file_6.cpp
