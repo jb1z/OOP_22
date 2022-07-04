@@ -318,15 +318,13 @@ class Professor: public Human // inherited from Human
 
 The `public` keyword before `Human` means the specification modifier of inheritance, it also could be `private` and `protected`. Here is the table of inheritance:
 
-**\*Insert table\***
+-  | public | protected | private
+   :----: | :----: | :----: | :----:
+public   | public | protected  | private
+protected  | protected  | protected  | private
+private  | private  | private  | private
 
-**\*Make it from this\***
-
-//!
-// when inheriting: public -> fields: public - public; protected - protected; private - private
-// when inheriting: protected -> fields: public - protected; protected - protected; private - private
-// when inheriting: private -> fields: public - private; protected - private; private - private
-//!
+The columns mean inheritance type, the rows mean *access specifiers* and to which type they transform after inheritance.
 
 ___
 
