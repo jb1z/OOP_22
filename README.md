@@ -378,6 +378,31 @@ ___
 ## file_7.cpp
 
 **Themes covered in file:**
+
+- *pure virtual methods*
+- *virtual destructors*
+- *pure virtual destructors*
+  
+***Pure virtual methods:***
+
+We need pure virtual methods to force inheritor-classes to realize this method.
+
+***Virtual destructors:***
+
+These destructors are needed for correct memory release like in this block of code:
+
+```cpp
+A *bptr = new B;
+delete bptr;
+// we only release memory by A destructor, without B destructor
+// we should make ~A() - virtual
+// we need virtual destructor for a correct memory release
+```
+
+***Pure virtual destructors:***
+
+These destructor don't let us create an object of class where such a destructor exists. But we still need them for correct memory release.
+
 ___
 
 ## file_8.cpp
