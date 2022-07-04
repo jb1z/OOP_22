@@ -16,7 +16,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
 
 *We use constructor to initialize object we create with data.*
 
-1. In `Human` class there is a constructor with 3 parametrs:
+1. In `Human` class there is a constructor with 3 parameters:
 
     ```cpp
     Human(int age, int height, string name)
@@ -37,7 +37,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
     MyClass(MyClassOther &object)
     ```
 
-    This constructor  accepts as a parametr an object of `MyClassOther` class.
+    This constructor  accepts as a parameter an object of `MyClassOther` class.
 
 3. In `Point` class there are 3 constructors:
 
@@ -114,7 +114,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
         bool operator == (const Point &other)
         ```
 
-        It accepts as a parametr an object of `Point` class and return a `bool`.
+        It accepts as a parameter an object of `Point` class and return a `bool`.
 
    - The second overloaded operator is `+` :
 
@@ -140,7 +140,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
         The overloaded postfix increment should be considered more attentively:
 
         ```cpp
-        // postfix form differs from prefix by unused int parametr
+        // postfix form differs from prefix by unused int parameter
         // we cant return a reference to temp because its lifetime is limited by this block of code 
         Point operator ++ (int value){ // overloaded ++ operator (postfix)
             Point temp(*this);
@@ -150,7 +150,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
         }
         ```
 
-        We create a `temp` copy of `*this`, make some updates with `this->` and return a `temp`, not reference to a `temp`! Because lifetime of this `temp` object is limited by this method. We should do like that because of priority of postfix incrementation. Also we have a one unused parametr `int value` we should do this to differ overloading of prefix incrementation from postfix.
+        We create a `temp` copy of `*this`, make some updates with `this->` and return a `temp`, not reference to a `temp`! Because lifetime of this `temp` object is limited by this method. We should do like that because of priority of postfix incrementation. Also we have a one unused parameter `int value` we should do this to differ overloading of prefix incrementation from postfix.
 
 3. In `Human` class there is an overloaded `!=` operator but it realize implemented as overloading `==` described above.
 
@@ -162,7 +162,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
     }
     ```
 
-    It returns a reference `int &` and accept `index` we are point in square brackets when we use it as a parametr.
+    It returns a reference `int &` and accept `index` we are point in square brackets when we use it as a parameter.
 
 ___
 
@@ -255,7 +255,7 @@ static int getAppleCount(){
 }
 ```
 
-But we can do it this way (by receiving an object like a method's parametr):
+But we can do it this way (by receiving an object like a method's parameter):
 
 ```cpp
 static void changeColor(Apple &apple, string color){ // we can do like this
@@ -334,7 +334,44 @@ ___
 
 - *polymorphism*
 - *virtual method*
-- *overrided method*
+- *overridden method*
+
+In this file there are 3 classes: `Gun`, `MachineGun` inherited from `Gun` and player, which receive a pointer to `Gun` as a parameter in it's `shoot()` method.
+
+In this block of code two objects creating of `Gun` and `MachineGun` classes, then a `shoot()` method called for for `Gun` object the output is `Bang!` and for `MachineGun` object the output is `Bang! Bang! Bang!`:
+
+```cpp
+Gun gun;
+    gun.shoot(); // Bang!
+    MachineGun machineGun;
+    machineGun.shoot(); // Bang! Bang! Bang!
+```
+
+But the next block is showing *polymorphism* itself:
+
+```cpp
+    // pointer of base class type may point to the object of base class or to the object of inherited class
+    Gun gun1;
+    Gun *weapon1 = &gun1;
+    weapon1->shoot(); // Bang!
+    //
+    MachineGun gun2;
+    Gun *weapon2 = &gun2;
+    weapon2->shoot(); // Bang! Bang! Bang!
+    // called methods are determined by "object" type!
+```
+
+In the `Gun` class the method `shoot()` is virtual and in the `MachineGun` class this method is overridden.
+
+But if the `shoot()` method in `Gun` class wasn't virtual the output would be another:
+
+```cpp
+/*weapon1->shoot(); // Bang!
+weapon2->shoot(); // Bang!*/
+// called methods are determined by "pointer" type!
+```
+
+We can send to method objects of both class, because `shoot()` method in `Player` receive a pointer to `Gun` and we will see different realisation depends on **object type**!
 
 ___
 

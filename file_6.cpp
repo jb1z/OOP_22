@@ -24,11 +24,11 @@ class Player{
 
 int main(){
     Gun gun;
-    gun.shoot();
+    gun.shoot(); // Bang!
     MachineGun machineGun;
-    machineGun.shoot();
+    machineGun.shoot(); // Bang! Bang! Bang!
 
-    // pointer of base class type could point to the object of base class or to the object of inherited class (from base which considered)
+    // pointer of base class type may point to the object of base class or to the object of inherited class
     Gun gun1;
     Gun *weapon1 = &gun1;
     weapon1->shoot(); // Bang!
