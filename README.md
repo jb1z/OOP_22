@@ -318,7 +318,7 @@ class Professor: public Human // inherited from Human
 
 The `public` keyword before `Human` means the specification modifier of inheritance, it also could be `private` and `protected`. Here is the table of inheritance:
 
--  | public | protected | private
+*empty*  | public | protected | private
    :----: | :----: | :----: | :----:
 public   | public | protected  | private
 protected  | protected  | protected  | private
@@ -331,6 +331,11 @@ ___
 ## file_6.cpp
 
 **Themes covered in file:**
+
+- *polymorphism*
+- *virtual method*
+- *overrided method*
+
 ___
 
 ## file_7.cpp
