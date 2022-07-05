@@ -505,6 +505,48 @@ ___
 ## file_11.cpp
 
 **Themes covered in file:**
+
+- *namespaces*
+- *enumerations*
+
+**Description:**
+
+***Namespaces:***
+
+Namespaces are used to prevent a conflict between functions with same names, so we can wrap code to namespaces and if we want to access any information for exaple *classes*, *functions* and so on we need to do this with using namespace. Also we are able to declare one namespace within the other namespace:
+
+```cpp
+namespace firstNM{
+    void Foo(){
+        cout << "First foo()\n";
+    }
+}
+
+namespace secondNM{
+    void Foo(){
+        cout << "Second foo()\n";
+    }
+}
+```
+
+***Enumerations:***
+
+Enumeration is a structure with constants for better code readability. The examples of enumerations:
+
+```cpp
+enum PcStates{ 
+    OFF,
+    ON,
+    SLEEP
+};
+
+enum Speed{
+    MIN = 150,
+    RECOMMEND = 600,
+    MAX = 800
+};
+```
+
 ___
 
 ## file_12.cpp
