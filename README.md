@@ -478,6 +478,28 @@ ___
 ## file_10.cpp
 
 **Themes covered in file:**
+
+- *interfaces*
+- *diamond-shaped inheritance*
+
+**Description:**
+
+***Interfaces:***
+
+The example of *interface* in this file is a `IBicycle` class with all methods pure virtual.
+
+The `SimpleBicycle` and `SportBicycle` classes realize this interface.
+
+The `Human`'s class method `rideOn()` receive as a parameter a reference to `IBicycle` class object so it still let us use polymorphism.
+
+***Diamond-shaped inheritance:***
+
+There are 2 groups of classes which implement the diamond-shaped inheritance: `Component`, `Gpu`, `Memory`, `GraphicCard` and `Character`, `Orc`, `Warrior`, `OrcWarrior`:
+
+1. For the first group of classes it's ok to have  a `companyName` field in base class because as we   can see in `GraphicGard` constructor we can set `companyName` both for `Gpu` and `Memory` class, declaring `companyName` field only in base class.
+
+2. For the second group of classes this feature is destructive for logic because we will have 2 `HP` (heat points) fields. To solve this problem we can use a `virtual` keyword when we inherit `Orc` and `Warrior` classes from `Character` class. So the only 1 `HP` field ramains after this.
+
 ___
 
 ## file_11.cpp

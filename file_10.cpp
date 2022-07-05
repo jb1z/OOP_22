@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-class IBycycle{ // interface is an abstract class with all methods virtual
+class IBicycle{ // interface is an abstract class with all methods pure virtual
     public:
         virtual void turnWheel() = 0;
         virtual void ride() = 0;
 };
 
-class SimpleBycycle : public IBycycle{ // class which realize interface
+class SimpleBicycle : public IBicycle{ // class which realize interface
     public:
         void turnWheel() override{
             cout << "Turn wheel on simple\n";
@@ -17,7 +17,7 @@ class SimpleBycycle : public IBycycle{ // class which realize interface
         }
 };
 
-class SportBycycle : public IBycycle{ // class which realize interface
+class SportBicycle : public IBicycle{ // class which realize interface
     public:
         void turnWheel() override{
             cout << "Turn wheel on sport\n";
@@ -29,11 +29,11 @@ class SportBycycle : public IBycycle{ // class which realize interface
 
 class Human{
     public:
-        void rideOn(IBycycle &bycycle){
+        void rideOn(IBicycle &bicycle){
             cout << "Turning wheel:\n";
-            bycycle.turnWheel();
+            bicycle.turnWheel();
             cout << "Riding:\n";
-            bycycle.ride();
+            bicycle.ride();
         }
 };
 
@@ -104,8 +104,8 @@ class OrcWarrior : public Orc, public Warrior{
 // if we add virtual we will have 1 HP field
 
 int main(){
-    SimpleBycycle sb;
-    SportBycycle sb1;
+    SimpleBicycle sb;
+    SportBicycle sb1;
     Human h;
     h.rideOn(sb);
     h.rideOn(sb1);
