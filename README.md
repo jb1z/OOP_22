@@ -444,6 +444,35 @@ ___
 ## file_9.cpp
 
 **Themes covered in file:**
+
+- *plural inheritance*
+
+**Description:**
+
+***Plural inheritance:***
+
+The order of constructor order deepends on inheritance order:
+
+```cpp
+class FlyingCar : public Car, public Airplane // plural inheritance
+```
+
+The `Car` class constructor will be called first.
+
+Also we can use a pointer of both base classes with `FlyingCar` object:
+
+```cpp
+Car *ptrC = &fc;
+Airplane *ptrA = &fc;
+```
+
+And if we have in base classes same method we need to lead object to required type:
+
+```cpp
+((Car)fc).use();
+((Airplane)fc).use();
+```
+
 ___
 
 ## file_10.cpp
