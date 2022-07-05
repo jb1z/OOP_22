@@ -408,6 +408,37 @@ ___
 ## file_8.cpp
 
 **Themes covered in file:**
+
+- *delegating constructors*
+- *overridden methods*
+
+**Description:**
+
+***Delegating constructors:***
+
+In `Human` class there are 3 contructors: 2 of them call other contructor:
+
+```cpp
+Human(string name, int age) : Human(name){ // firstly calling Human(name)
+    age_ = age;
+}
+Human(string name, int age, int weight) : Human(name, age){ // firstly calling Human(name)
+    weight_ = weight;
+}
+```
+
+These are *delegating* constructors.
+
+***Overridden methods:***
+
+In this file there are `Msg` and `Brekets` classes: `BreketMsg` inherited from `Msg` and in `BreketMsg` class the `getMsg()` method is overridden and if we want to call a `getMsg()` from `Msg` class we should use it's by `Msg` namespace:
+
+```cpp
+string getMsg() override{
+    return "[" + Msg::getMsg() + "]"; // we should directly point to method we want to use
+}
+```
+
 ___
 
 ## file_9.cpp
