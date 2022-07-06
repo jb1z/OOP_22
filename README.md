@@ -556,6 +556,8 @@ ___
 - *template functions*
 - *template classes*
 
+**Description:**
+
 ***Template functions:***
 
 In this file the `sum()` function is templated, and it declared like this:
@@ -599,6 +601,55 @@ ___
 ## file_13.cpp
 
 **Themes covered in file:**
+
+- *smart pointer*
+- *auto_ptr*
+- *unique_ptr*
+- *shared_ptr*
+
+**Description:**
+
+***Smart pointer:***
+
+In this file the templated `SmartPointer` class realized.With smart pointer we dont need to manage deleting.
+
+***auto_ptr:***
+
+We can do like this:
+
+```cpp
+auto_ptr<int> ap1 (new int(1));
+auto_ptr<int> ap2 (ap1);
+```
+
+After this `ap1` becomes `NULL` and `ap2` point to those memory block, where `ap1` pointed before.
+
+***unique_ptr:***
+
+```cpp
+unique_ptr<int> up1(new int(1));
+//unique_ptr<int> up2(up1); we cant do like this (UNIQUE pointer)
+unique_ptr<int> up2;
+//up2 = move(up1);
+// when we try to make second pointer, which point to the same memory block, previous pointer lost the way to memory block
+up2.swap(up1); // move analogue
+int *p = up1.get();
+
+int *p1 = new int(5);
+unique_ptr<int> up3(p1);
+//up3.reset(); // data overwritten in memory
+up3.reset(); // pointer stops point to this memoty block
+```
+
+***shared_ptr:***
+
+```cpp
+shared_ptr<int> sp1(new int(1));
+shared_ptr<int> sp2(sp1);
+```
+
+*Shared pointer* solves the problem of correct memory releasing when several pointers *points* to the same memory block: **the data is deleted when the last `shared_poiner` deleting**.
+
 ___
 
 ## file_14.cpp
