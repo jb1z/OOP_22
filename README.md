@@ -552,6 +552,48 @@ ___
 ## file_12.cpp
 
 **Themes covered in file:**
+
+- *template functions*
+- *template classes*
+
+***Template functions:***
+
+In this file the `sum()` function is templated, and it declared like this:
+
+```cpp
+template<class T1, class T2>
+T1 sum(T1 a, T2 b)
+```
+
+`T1` and `T2` here means that we can transfer to this function arguments with different types.
+
+***Template classes:***
+
+1. In this file there are 2 templat eclasses: `TypeSize` and `TypeInfo`, and `TypeInfo` inherited from `TypeSize`.
+The `TypeSize` constructor is called from `TypeInfo` class:
+
+    ```cpp
+    TypeInfo(T value) : TypeSize <T> (value){}
+    ```
+
+2. Another example of templated class is `Printer` class, we have a specific realization for the case when we receive an variable of `string` type:
+
+    ```cpp
+    template <class T>
+    class Printer{
+    public:
+        void print(T value)
+        /*...*/
+    }
+    // for string:
+    template<>
+    class Printer<string>{
+    public:
+        void print(string value)
+        /*...*/
+    }
+    ```
+
 ___
 
 ## file_13.cpp
