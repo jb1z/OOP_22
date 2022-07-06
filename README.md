@@ -2,7 +2,7 @@
 
 I decided to repeate OOP principles on cpp, and I found a YouTube channel `#SimpleCode`. I considered themes I'm interested in, wrote and debugged code in these files from this [playlist](https://www.youtube.com/playlist?list=PLQOaTSbfxUtBm7DxblJZShqBQnBAVzlXX) to practice.
 
-## file_1.cpp
+## [file_1.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_1.cpp)
 
 **Themes covered in file:**
 
@@ -166,7 +166,7 @@ I decided to repeate OOP principles on cpp, and I found a YouTube channel `#Simp
 
 ___
 
-## file_2.cpp
+## [file_2.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_2.cpp)
 
 **Themes covered in file:**
 
@@ -222,7 +222,7 @@ although `weight_` is private in `Apple` class.
 
 ___
 
-## file_3.cpp
+## [file_3.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_3.cpp)
 
 **Themes covered in file:**
 
@@ -265,7 +265,7 @@ static void changeColor(Apple &apple, string color){ // we can do like this
 
 ___
 
-## file_4.cpp
+## [file_4.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_4.cpp)
 
 **Themes covered in file:**
 
@@ -297,7 +297,7 @@ The example of *aggregation* in this file is an object of `Cap` class, which we 
 
 ___
 
-## file_5.cpp
+## [file_5.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_5.cpp)
 
 **Themes covered in file:**
 
@@ -328,7 +328,7 @@ The columns mean inheritance type, the rows mean *access specifiers* and to whic
 
 ___
 
-## file_6.cpp
+## [file_6.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_6.cpp)
 
 **Themes covered in file:**
 
@@ -375,7 +375,7 @@ We can send to method objects of both class, because `shoot()` method in `Player
 
 ___
 
-## file_7.cpp
+## [file_7.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_7.cpp)
 
 **Themes covered in file:**
 
@@ -405,7 +405,7 @@ These destructor don't let us create an object of class where such a destructor 
 
 ___
 
-## file_8.cpp
+## [file_8.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_8.cpp)
 
 **Themes covered in file:**
 
@@ -441,7 +441,7 @@ string getMsg() override{
 
 ___
 
-## file_9.cpp
+## [file_9.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_9.cpp)
 
 **Themes covered in file:**
 
@@ -475,7 +475,7 @@ And if we have in base classes same method we need to lead object to required ty
 
 ___
 
-## file_10.cpp
+## [file_10.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_10.cpp)
 
 **Themes covered in file:**
 
@@ -502,7 +502,7 @@ There are 2 groups of classes which implement the diamond-shaped inheritance: `C
 
 ___
 
-## file_11.cpp
+## [file_11.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_11.cpp)
 
 **Themes covered in file:**
 
@@ -549,7 +549,7 @@ enum Speed{
 
 ___
 
-## file_12.cpp
+## [file_12.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_12.cpp)
 
 **Themes covered in file:**
 
@@ -598,7 +598,7 @@ The `TypeSize` constructor is called from `TypeInfo` class:
 
 ___
 
-## file_13.cpp
+## [file_13.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_13.cpp)
 
 **Themes covered in file:**
 
@@ -652,7 +652,7 @@ shared_ptr<int> sp2(sp1);
 
 ___
 
-## file_14.cpp
+## [file_14.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_14.cpp)
 
 **Themes covered in file:**
 
@@ -702,7 +702,55 @@ Linked list is a data structure where the `Node` cover some *data* and *points* 
 
 ___
 
-## file_15.cpp
+## [file_15.cpp](https://github.com/jb1z/OOP_CPP_22/blob/master/file_15.cpp)
 
 **Themes covered in file:**
+
+- *STL*
+- *auto keyword*
+- *vector*
+- *iterator*
+- *list*
+- *prefix and postfix increment for iterator*
+- *forward list*
+- *array and compare operators*
+- *deque*
+- *set/multiset*
+- *map/multimap*
+- *stack*
+- *queue*
+- *priority queue*
+
+**Description:**
+
+***STL***
+
+***Auto keyword:***
+
+***Vector:***
+
+***Iterator:***
+
+***List:***
+
+***Prefix and postfix increment for iterator:***
+
+***Forward list:***
+
+***Array and compare operators:***
+
+***Deque:***
+
+***Set/multiset:***
+
+***Map/multimap:***
+
+***Stack, queue and priority_queue are container adapters they lay down rules on container.***
+
+***Stack:***
+
+***Queue:***
+
+***Priority queue:***
+
 ___
