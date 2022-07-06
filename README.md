@@ -655,6 +655,51 @@ ___
 ## file_14.cpp
 
 **Themes covered in file:**
+
+- *linked list implementation*
+
+**Description:**
+
+***Linked list implementation:***
+
+Linked list is a data structure where the `Node` cover some *data* and *points* to another `Node`. The `Node` where *linked list* starts is *head* `Node`. In this file *linked list* is templated and the `Node` class is inner class of `List` class. The methods of `List`:
+
+- `void push_back(TList data)`:
+  
+  This method *pushes* the *data* into the end of `List`.
+
+- `void push_front(TList data)`:
+  
+  This method *pushes* the *data* into the beginning of `List`.
+
+- `void pop_front()`:
+  
+  This method deleted the first `Node` of `List`.
+
+- `void pop_back()`:
+  
+  This method deleted the last `Node` of `List`.
+
+- `void insert(TList data, int index)`:
+  
+  This method inserts the `Node` with `data` by `index` to `List`.
+
+- `void removeAt(int index)`:
+  
+  This method deletes the `Node` by `index` from `List`.
+
+- `void clear()`:
+  
+  This method *clears* the entire `List` by deleting all `Node`s.
+
+- `int getSize()`:
+  
+  This method returns a `List` size.
+
+- `TList& operator[](const int index)`:
+  
+  This is overloaded [] (indexing) operator.
+
 ___
 
 ## file_15.cpp

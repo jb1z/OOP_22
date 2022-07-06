@@ -22,8 +22,8 @@ class SmartPointer{
 
 int main(){
     // with smart pointer we dont need to manage deleting 
-    auto_ptr<int> ap1 (new int(1));
-    auto_ptr<int> ap2 (ap1);
+    //auto_ptr<int> ap1 (new int(1));
+    //auto_ptr<int> ap2 (ap1);
 
     unique_ptr<int> up1(new int(1));
     //unique_ptr<int> up2(up1); we cant do like this (UNIQUE pointer)
