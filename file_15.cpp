@@ -77,7 +77,7 @@ int main(){
     cout << endl;
     for(vector<int>::const_iterator i = myVector3.cbegin(); i != myVector3.cend(); i++){ // const iterator
         // cbegin and cend return constant iterator
-        //*i = 5; // we cant cahnge anything by const iterator
+        //*i = 5; // we cant change anything by const iterator
         cout << *i << endl;
     }
     cout << endl;
@@ -285,7 +285,7 @@ int main(){
 
     /*Stack*/ // FILO - First In Last Out
     stack<int> st; // on default stack uses deque
-    st.push(2); // create copy of object and then moce a copy to collection
+    st.push(2); // create copy of object and then move a copy to collection
     st.emplace(9); // emplace directly create object
     st.push(3);
     st.push(4);
