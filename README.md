@@ -725,32 +725,74 @@ ___
 
 ***STL***
 
-***Auto keyword:***
+- ***Auto keyword:***
 
-***Vector:***
+    With *auto* keyword compiler can automatically define the type of variable. This keyword is used for those objects, which have a long type, iterators for example:
 
-***Iterator:***
+    ```cpp
+    vector<int>::iterator it = myVector.begin(); // !!
+    auto it2 = myVector.begin(); // !!
+    ```
 
-***List:***
+    We can use auto instead of long type define. Using for primitive worsens the readability of the code.
 
-***Prefix and postfix increment for iterator:***
+- ***Vector:***
 
-***Forward list:***
+    Vector is a container for dynamic array with different methods, some of them are considered in file.
 
-***Array and compare operators:***
+- ***Iterator:***
 
-***Deque:***
+    Iterators are something like smart pointers, they are declaring by container's namespace, each STL data structure have it's own iterator, which can work with it.
 
-***Set/multiset:***
+    Constant iterator don't let make any changes with data by itself.
 
-***Map/multimap:***
+- ***List:***
+
+    The STL `list` is an implementation of doubly linked list.
+
+- ***Prefix and postfix increment for iterator:***
+
+    The postfix increment is slower than prefix because of priority of operations, then an iterator increments with postfix incrementation the copy of object is creating, so the operation slows down.
+
+- ***Forward list:***
+
+    The STL `forward_list` is an implementation of singly linked list.
+
+- ***Array and compare operators:***
+
+    The `array` in STL is a container for a static array.
+
+- ***Deque:***
+
+    The `deque` is a container which can be represented as a list of small dynamic arrays. Accessing is faster than in list but slower than in vector. Inserting is faster than in vector.
+
+- ***Set/multiset:***
+
+    The `set` implemented as a binary tree, so all the elements are ordered. `set` keeps only unique values, whereas `multiSet` may keep equal values.
+
+- ***Map/multimap:***
+
+    The `map` data structure also is implemented as a binary tree by *key* and as a pair to *key* it also keeps a *value*. `map` keeps only unique values, whereas `multiMap` may keep equal values.
 
 ***Stack, queue and priority_queue are container adapters they lay down rules on container.***
 
-***Stack:***
+- ***Stack:***
 
-***Queue:***
+    The `stack` is a structure, which guided by the rule of FILO - First In Last Out. On default `stack` uses `deque`.
+    The `stack` based on `list` declaring like this:
 
-***Priority queue:***
+    ```cpp
+    stack<int, list<int>> st1; // stack based on list
+    ```
+
+    The `emplace()` method is faste than `push()` because `push()` methods create a copy of object before moving to the collection whereas `emplace()` method directly create an object.
+
+- ***Queue:***
+
+    The `queue` structure is a structure, which guided by the rule of FIFO - First In First Out. On default `queue` also uses `deque`. But `vector` can't be a base of it.
+
+- ***Priority queue:***
+
+    The `priority_queue` is a `queue` where all elements are ordered in ***descending*** order. The `list` can't be a base of `priority_queue`.
 
 ___
