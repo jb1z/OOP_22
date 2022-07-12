@@ -226,7 +226,7 @@ ___
 
 **Themes covered in file:**
 
--*static fields & static methods*
+- *static fields & static methods*
 
 **Description:**
 
